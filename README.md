@@ -1,13 +1,13 @@
-Here is an updated README for a MERN stack app with user location-based city data and city-related posts:
 
-City Blog App
+
+
 This is a MERN stack application that displays city blog posts based on a user's location.
 
 Features
-User sign up and authentication
+User sign-up and authentication
 Get user location via geolocation API
 Save user location city to database
-Create, edit, delete blog posts related to cities
+Create, edit, and delete blog posts related to cities
 View blog posts filtered by city
 Public user profiles with post history
 Models
