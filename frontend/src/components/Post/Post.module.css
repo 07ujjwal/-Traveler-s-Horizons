@@ -1,0 +1,77 @@
+.container {
+  background: black;
+  height: 100vh;
+  padding: 2rem;
+}
+
+.post {
+  padding: 2rem 3rem;
+  max-height: 100%;
+  background-color: var(--color-dark--2);
+  border-radius: 7px;
+  overflow-y: scroll;
+  width: auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 3rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.post h2 {
+  text-transform: uppercase;
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--color-light--1);
+}
+
+.post h1 {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.post h1 span {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.post p {
+  font-size: 1.8rem;
+}
+
+.body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.review {
+  width: 75vw;
+  height: 50vh;
+  background: linear-gradient(to top, #f2f2f2, #dddddd, #a6a6a6);
+  padding: 3rem;
+  border-radius: 4px;
+  color: black;
+  overflow-y: scroll;
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .post {
+    padding: 2rem 2rem;
+    margin: 1.5rem;
+  }
+}

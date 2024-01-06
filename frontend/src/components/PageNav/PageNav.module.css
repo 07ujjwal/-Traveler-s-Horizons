@@ -1,0 +1,72 @@
+/* PageNav.module.css */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navLinks {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+
+  @media (max-width: 768px) {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #333;
+  }
+}
+
+.mobileNav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  gap: 2rem;
+  position: absolute;
+  top: 120px;
+  left: 100px;
+  background-color: #333;
+}
+
+.nav a:link,
+.nav a:visited,
+.navLinks a:link,
+.navLinks a:visited,
+.mobileNav a:link,
+.mobileNav a:visited {
+  text-decoration: none;
+  color: var(--color-light--2);
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* CSS Modules feature */
+.nav a:global(.active),
+.navLinks a:global(.active),
+.mobileNav a:global(.active) {
+  color: var(--color-brand--2);
+}
+
+a.ctaLink:link,
+a.ctaLink:visited {
+  background-color: var(--color-brand--2);
+  color: var(--color-dark--0);
+  padding: 0.8rem 2rem;
+  border-radius: 7px;
+}
+
+.mobileMenuIcon {
+  cursor: pointer;
+  font-size: 1.5rem;
+
+  @media (min-width: 769px) {
+    display: none;
+  }
+}

@@ -1,0 +1,14 @@
+.logo {
+  height: 5.2rem;
+  background-image: url("./logo.png");
+  background-size: cover;
+  background-position: center;
+  padding: 2.5rem 6rem;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 500px) {
+  .logo {
+    height: 5rem;
+  }
+}

@@ -1,0 +1,17 @@
+.app {
+  height: 100vh;
+  background: linear-gradient(to bottom, black, #4c4c4c);
+  padding: 2.4rem;
+  overscroll-behavior-y: none;
+  display: flex;
+  position: relative;
+}
+
+@media screen and (max-width: 500px) {
+  .app {
+    line-height: 1.2;
+    height: 100vh;
+    overscroll-behavior-y: auto;
+    flex-direction: column;
+  }
+}
