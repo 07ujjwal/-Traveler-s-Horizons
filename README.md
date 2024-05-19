@@ -1,6 +1,6 @@
 ### Traveler-s-Horizons
 
-City Explorer is a sophisticated MERN stack application designed to provide users with curated blog posts based on their location. It boasts seamless user sign-up and authentication functionalities, harnesses geolocation APIs to pinpoint user locations, and efficiently saves user city preferences in a secure database. With a focus on user experience, City Explorer empowers users to create, edit, and delete blog posts tailored to specific cities, ensuring relevant and engaging content.
+Traveler-s-Horizons is a sophisticated MERN stack application designed to provide users with curated blog posts based on their location. It boasts seamless user sign-up and authentication functionalities, harnesses geolocation APIs to pinpoint user locations, and efficiently saves user city preferences in a secure database. With a focus on user experience, City Explorer empowers users to create, edit, and delete blog posts tailored to specific cities, ensuring relevant and engaging content.
 
 User Authentication: City Explorer offers robust user authentication features, ensuring secure access to personalized content and interactions.
 
