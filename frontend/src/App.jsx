@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Product from "./pages/Product/Product";
 import Pricing from "./pages/Product/Pricing";
 import Homepage from "./pages/HomePage/Homepage";
-import PageNotfound from "./pages/PageNotfound/PageNotFound";
 import AppLayout from "./pages/AppLayout/AppLayout";
 import CityList from "./components/CityList/CityList";
 import CountryList from "./components/Country/CountryList";
@@ -18,10 +17,9 @@ import CreatePost from "./pages/CreatePostPage/CreatePost";
 import PostLayout from "./pages/PostLayout/PostLayout";
 //import PostList from "./components/PostList/PostList";
 import Post from "./components/Post/Post";
+import PageNotFound from "./pages/PageNotfound/PageNotFound";
 
 function App() {
-  const { isAuthenticated } = useAuth();
-
   return (
     <BrowserRouter>
       <Routes>
@@ -49,7 +47,7 @@ function App() {
         </Route>
         <Route path="posts" element={<PostLayout />} />
         <Route path="post/:slug" element={<Post />} />
-        <Route path="*" element={<PageNotfound />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
   );
