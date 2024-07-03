@@ -5,19 +5,21 @@ import PostItems from "../PostItems/PostItems";
 import Spinner from "../Spinner/Spinner";
 import styles from "./PostList.module.css";
 import BackButton from "../Buttons/BackButton";
+import { useDebounce } from "../../hooks/useDebounce";
 function PostList() {
-  const { posts, isLoading, dispatch, getAllPosts } = usePosts();
-
-  const [searchKeyword, setSearchKeyword] = useState();
+  const { posts, isLoading, getAllPosts } = usePosts();
+  const [searchKeyword, setSearchKeyword] = useState("");
+  const debouncedSearchKeyword = useDebounce(searchKeyword, 500);
 
   console.log(searchKeyword);
 
   let limit;
+
   posts.length > 10 ? (limit = posts.length) : 10;
 
   useEffect(() => {
-    getAllPosts(searchKeyword, limit);
-  }, [searchKeyword, limit]);
+    getAllPosts(debouncedSearchKeyword, 1, limit);
+  }, [debouncedSearchKeyword, limit]);
 
   if (isLoading) return <Spinner />;
 

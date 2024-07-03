@@ -33,6 +33,12 @@
   margin-bottom: 2.5rem;
 }
 
+.footer {
+  display: flex;
+  align-items: baseline;
+  
+}
+
 @media screen and (max-width: 500px) {
   .homepage {
     height: calc(110vh);

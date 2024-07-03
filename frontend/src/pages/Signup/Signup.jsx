@@ -5,7 +5,7 @@ import { useAuth } from "../../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { isValidEmail, isValidPassword } from "react";
 function Signup() {
-  const [email, setEmail] = useState("jack@example.com");
+  const [email, setEmail] = useState("ujjwalphy3@gmail.com");
   const [password, setPassword] = useState("123456");
   const [name, setName] = useState("ujjwal");
 

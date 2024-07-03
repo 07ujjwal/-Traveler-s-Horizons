@@ -7,7 +7,6 @@ function PageNavApp() {
     <div>
       <nav className={styles.nav}>
         <Logo />
-
         <ul>
           <li>
             <NavLink to="/pricing">About</NavLink>

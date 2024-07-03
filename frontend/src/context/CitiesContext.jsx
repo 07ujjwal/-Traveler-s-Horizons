@@ -1,6 +1,5 @@
 // CityProvider.jsx
 import { createContext, useContext, useEffect, useReducer } from "react";
-import { API_URL } from "../constants/constants";
 import axios from "axios";
 import { useAuth } from "./AuthContext";
 
@@ -109,7 +108,7 @@ function CityProvider({ children }) {
       };
       const res = await axios.get(`/api/cities/${id}`, config);
       dispatch({ type: "city/Loaded", payload: res.data });
-      console.log(res.data);
+      // console.log(res.data);
     } catch (error) {
       console.error("Error loading the data:", error);
       dispatch({

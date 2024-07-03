@@ -22,6 +22,7 @@ export default function Homepage() {
           <Link to={"/posts"}>
             <Button type={"primary"}>View All posts and Reviews</Button>
           </Link>
+          <p className="footer">© Copyright 2024 by singh ujjwal 😎.</p>
         </section>
       ) : (
         <section>
@@ -37,6 +38,7 @@ export default function Homepage() {
           <Link to={"/login"}>
             <Button type={"primary"}>View All posts and Reviews</Button>
           </Link>
+          <p className="footer">© Copyright 2024 by singh ujjwal 😎.</p>
         </section>
       )}
     </main>

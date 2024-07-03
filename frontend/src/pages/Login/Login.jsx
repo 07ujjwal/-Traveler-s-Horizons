@@ -81,13 +81,12 @@ export default function Login() {
           gap: "1rem",
         }}
       >
-        {" "}
         <p
           style={{
             color: "aqua",
           }}
         >
-          Don't have an account :
+          Does Not have an account :
         </p>
         <Link to={"/signup"}>
           <Button type={"back"}>SignUp</Button>{" "}
