@@ -17,7 +17,7 @@ import CreatePost from "./pages/CreatePostPage/CreatePost";
 import PostLayout from "./pages/PostLayout/PostLayout";
 //import PostList from "./components/PostList/PostList";
 import Post from "./components/Post/Post";
-import PageNotFound from "./pages/PageNotfound/PageNotFound";
+import PageNotFound from "./pages/PageNotFound/PageNotFound";
 
 function App() {
   return (
