@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "./signUp.module.css";
+import styles from "./signup.module.css";
 import Button from "../../components/Buttons/Button";
 import { useAuth } from "../../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
