@@ -3,6 +3,7 @@ import stables from "../../constants/stables";
 import { HiOutlineCamera } from "react-icons/hi";
 function PictureComponent() {
   const { user } = useAuth();
+  console.log(user.picture);
 
   return (
     <div>

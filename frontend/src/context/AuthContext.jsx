@@ -1,3 +1,4 @@
+// authContext.js
 import { createContext, useContext, useReducer } from "react";
 import axios from "axios";
 
@@ -12,6 +13,8 @@ const initialState = {
   isAuthenticated: Boolean(userInfofromStorage),
   userProfile: null,
 };
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 function reducer(state, action) {
   switch (action.type) {
@@ -51,7 +54,7 @@ function AuthProvider({ children }) {
 
   async function signup({ name, email, password }) {
     try {
-      const res = await axios.post("/api/users/register", {
+      const res = await axios.post(`${API_BASE_URL}/users/register`, {
         name,
         email,
         password,
@@ -61,19 +64,13 @@ function AuthProvider({ children }) {
 
       localStorage.setItem("account", JSON.stringify(res.data));
     } catch (error) {
-      console.error("Registration failed:", error.message);
-
-      if (error.response && error.response.status === 401) {
-        alert("Invalid user ID or password. Please try again.");
-      } else {
-        alert("Registration failed. Please try again later.");
-      }
+      handleError(error, "Registration failed");
     }
   }
 
   async function login({ email, password }) {
     try {
-      const res = await axios.post("/api/users/login", {
+      const res = await axios.post(`${API_BASE_URL}/users/login`, {
         email,
         password,
       });
@@ -82,13 +79,7 @@ function AuthProvider({ children }) {
 
       localStorage.setItem("account", JSON.stringify(res.data));
     } catch (error) {
-      console.error("Login failed:", error.message);
-
-      if (error.response && error.response.status === 401) {
-        alert("Invalid user ID or password. Please try again.");
-      } else {
-        alert("Registration failed. Please try again later.");
-      }
+      handleError(error, "Login failed");
     }
   }
 
@@ -100,7 +91,7 @@ function AuthProvider({ children }) {
         },
       };
 
-      const { data } = await axios.get("/api/users/profile", config);
+      const { data } = await axios.get(`${API_BASE_URL}/users/profile`, config);
 
       dispatch({ type: "getProfile", payload: data });
     } catch (error) {
@@ -117,7 +108,7 @@ function AuthProvider({ children }) {
       };
 
       const { data } = await axios.put(
-        "/api/users/updateProfile",
+        `${API_BASE_URL}/users/updateProfile`,
         userData,
         config
       );
@@ -127,7 +118,7 @@ function AuthProvider({ children }) {
       localStorage.setItem("account", JSON.stringify(data));
     } catch (error) {
       console.error("Failed updating profile:", error.message);
-      alert("ailed updating profile");
+      alert("Failed updating profile");
     }
   }
 
@@ -141,7 +132,7 @@ function AuthProvider({ children }) {
       };
 
       const { data } = await axios.put(
-        "/api/users/updateProfilePicture",
+        `${API_BASE_URL}/users/updateProfilePicture`,
         formData,
         config
       );
@@ -158,6 +149,15 @@ function AuthProvider({ children }) {
   function logout() {
     dispatch({ type: "logout" });
     localStorage.removeItem("account");
+  }
+
+  function handleError(error, defaultMessage) {
+    console.error(defaultMessage, error.message);
+    if (error.response && error.response.status === 401) {
+      alert("Invalid user ID or password. Please try again.");
+    } else {
+      alert(`${defaultMessage}. Please try again later.`);
+    }
   }
 
   return (

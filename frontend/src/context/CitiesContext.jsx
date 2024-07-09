@@ -12,6 +12,8 @@ const initialState = {
   error: "",
 };
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 function reducer(state, action) {
   switch (action.type) {
     case "loading":
@@ -79,7 +81,7 @@ function CityProvider({ children }) {
       };
 
       try {
-        const res = await axios.get(`/api/cities`, config);
+        const res = await axios.get(`${API_BASE_URL}/cities`, config);
 
         dispatch({ type: "cities/Loaded", payload: res.data });
       } catch (error) {
@@ -106,9 +108,8 @@ function CityProvider({ children }) {
           Authorization: `Bearer ${token}`,
         },
       };
-      const res = await axios.get(`/api/cities/${id}`, config);
+      const res = await axios.get(`${API_BASE_URL}/cities/${id}`, config);
       dispatch({ type: "city/Loaded", payload: res.data });
-      // console.log(res.data);
     } catch (error) {
       console.error("Error loading the data:", error);
       dispatch({
@@ -129,7 +130,7 @@ function CityProvider({ children }) {
         },
       };
 
-      const res = await axios.post(`/api/cities`, newCity, config);
+      const res = await axios.post(`${API_BASE_URL}/cities`, newCity, config);
 
       dispatch({ type: "cities/Created", payload: res.data });
     } catch (error) {
@@ -152,7 +153,7 @@ function CityProvider({ children }) {
         },
       };
 
-      await axios.delete(`/api/cities/${id}`, config);
+      await axios.delete(`${API_BASE_URL}/cities/${id}`, config);
 
       dispatch({ type: "cities/deleted", payload: id });
     } catch (error) {

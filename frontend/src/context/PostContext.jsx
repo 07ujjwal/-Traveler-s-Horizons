@@ -1,3 +1,4 @@
+// PostProvider.jsx
 import { createContext, useContext, useReducer } from "react";
 import { useAuth } from "./AuthContext";
 import axios from "axios";
@@ -10,6 +11,8 @@ const initialState = {
   currentPost: {},
   error: "",
 };
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 function reducer(state, action) {
   switch (action.type) {
@@ -54,6 +57,7 @@ function reducer(state, action) {
         isLoading: false,
         posts: state.posts.filter((post) => post.slug !== action.payload),
       };
+
     case "rejected":
       return {
         ...state,
@@ -84,7 +88,7 @@ function PostProvider({ children }) {
         },
       };
 
-      const res = await axios.post("/api/posts", newPost, config);
+      const res = await axios.post(`${API_BASE_URL}/posts`, newPost, config);
 
       dispatch({ type: "posts/Created", payload: res.data });
     } catch (error) {
@@ -107,9 +111,9 @@ function PostProvider({ children }) {
         },
       };
 
-      await axios.delete(`/api/posts/${slug}`, config);
+      await axios.delete(`${API_BASE_URL}/posts/${slug}`, config);
 
-      dispatch({ type: "cities/deleted", payload: slug });
+      dispatch({ type: "posts/deleted", payload: slug });
     } catch (error) {
       alert("Error loading the data");
       dispatch({
@@ -124,7 +128,7 @@ function PostProvider({ children }) {
     dispatch({ type: "loading" });
     try {
       const { data, headers } = await axios.get(
-        `/api/posts?searchKeyword=${searchKeyword}&page=${page}&limit=${limit}`
+        `${API_BASE_URL}/posts?searchKeyword=${searchKeyword}&page=${page}&limit=${limit}`
       );
       dispatch({
         type: "posts/Loaded",
@@ -145,7 +149,7 @@ function PostProvider({ children }) {
 
     dispatch({ type: "loading" });
     try {
-      const { data } = await axios.get(`/api/posts/${slug}`);
+      const { data } = await axios.get(`${API_BASE_URL}/posts/${slug}`);
 
       dispatch({
         type: "post/Loaded",

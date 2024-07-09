@@ -10,7 +10,7 @@ import City from "./components/City/City";
 import Form from "./components/Folder/Form";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
-import { useAuth } from "./context/AuthContext";
+
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import ProtectedRout from "./components/ProtectedRout";
 import CreatePost from "./pages/CreatePostPage/CreatePost";
@@ -40,6 +40,7 @@ function App() {
           <Route />
           <Route index element={<CityList />} />
           <Route path="cities" element={<CityList />} />
+          <Route path=":id" element={<City />} />
           <Route path="cities/:id" element={<City />} />
           <Route path="countries" element={<CountryList />} />
           <Route path="form" element={<Form />} />
