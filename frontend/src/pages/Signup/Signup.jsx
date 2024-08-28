@@ -34,6 +34,11 @@ function Signup() {
 
   return (
     <main className={styles.signup}>
+      <p className={styles.infoMessage}>
+        Please be aware that the initial rendering of the application may take
+        up to 40 seconds. This delay is due to the initial setup and loading
+        processes. Thank you for your patience.
+      </p>
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.row}>
           <label htmlFor="name">Name</label>
