@@ -27,7 +27,7 @@ function City() {
   }, [id]);
 
   if (!currentCity) {
-    return <p>City not found</p>; // You may consider redirecting the user
+    return <p>City not found</p>; 
   }
 
   const { cityName, emoji, date, notes } = currentCity;
